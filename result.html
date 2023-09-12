@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Contact Us</title>
+
+    <style>
+        /* Content Section */
+        .content {
+            padding: 20px;
+        }
+
+        /* Add some basic styling for the page */
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin: 20px auto;
+        }
+
+        th,
+        td {
+            border: 5px solid #ddd;
+            border-radius: 5px;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+
+    <script src="./js/result.js"></script>
+
+    <script>
+        function win() {
+            var course = document.getElementById("drop").value;
+            var courseDetails = {};
+
+            if (course === "mean") {
+                courseDetails = {
+                    title: "MEAN Stack",
+                    duration: "30 Days",
+                    fees: "$200"
+                };
+            } else if (course === "mern") {
+                courseDetails = {
+                    title: "MERN Stack",
+                    duration: "2 weeks",
+                    fees: "$250"
+                };
+            } else if (course === "mevn") {
+                courseDetails = {
+                    title: "MEVN Stack",
+                    duration: "28 Days",
+                    fees: "$300"
+                };
+            }
+
+            var myWindow = window.open("", course, "width=500,height=500,left=350,top=100");
+            myWindow.document.write(
+                "<h2>" + courseDetails.title + "</h2>" +
+                "<table>" +
+                "<tr>" +
+                "<td>Duration:</td>" +
+                "<td>" + courseDetails.duration + "</td>" +
+                "</tr>" +
+                "<tr>" +
+                "<td>Fees:</td>" +
+                "<td>" + courseDetails.fees + "</td>" +
+                "</tr>" +
+                "</table>"
+            );
+        }
+    </script>
+
+</head>
+
+<body>
+    <div class="carousel-container">
+        <div class="carousel-slides">
+            <img class="carousel-slide" src="./images/3.jpg" alt="Slide 1">
+            <img class="carousel-slide" src="./images/2.jpg" alt="Slide 2">
+            <img class="carousel-slide" src="./images/4.jpg" alt="Slide 3">
+        </div>
+        <div class="header-canvas">
+            <canvas id="canvas"></canvas>
+        </div>
+    </div>
+
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="course.html">All Courses</a>
+        <a href="register.html">Registration</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="result.html">Result</a>
+        <a href="test.html">LVC Test</a>
+        <a href="subscribe.html" id="subscriptionButton">Subscribe</a>
+        <div class="dropdown">
+            <select id="drop" onchange="win()">
+                <option value="">Select Course</option>
+                <option value="mean">MEAN Stack</option>
+                <option value="mern">MERN Stack</option>
+                <option value="mevn">MEVN Stack</option>
+            </select>
+        </div>
+        <a href="contact.html">Contact Us</a>
+    </div>
+
+    <div class="content">
+        <h1 style="text-align: center;">Result</h1>
+        <form id="resultForm">
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <td><input type="text" id="studentName" required></td>
+                </tr>
+                <tr>
+                    <th>Subject</th>
+                    <th>Marks</th>
+                </tr>
+                <tr>
+                    <td>Mathamatics</td>
+                    <td><input type="number" id="mathsMarks" required></td>
+                </tr>
+                <tr>
+                    <td>Computer Science</td>
+                    <td><input type="number" id="computerMarks" required></td>
+                </tr>
+                <tr>
+                    <td>Science</td>
+                    <td><input type="number" id="scienceMarks" required></td>
+                </tr>
+                <tr>
+                    <td>Total Marks</td>
+                    <td id="totalMarks"></td>
+                </tr>
+                <tr>
+                    <td>Percentage</td>
+                    <td id="percentage"></td>
+                </tr>
+                <tr>
+                    <td>Maximum Marks</td>
+                    <td id="maxMarks"></td>
+                </tr>
+            </table>
+            <div style="text-align: center;">
+                <button type="button" onclick="calculate()">Total</button>
+            </div>
+        </form>
+
+    </div>
+
+    <div class="footer">
+        Designed & Developed By: Shama Firdouse M
+    </div>
+
+    </div>
+</body>
+
+</html>

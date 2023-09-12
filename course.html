@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/style.css">
+  <title>All Courses</title>
+
+  <style>
+    /* Content Section */
+    .content {
+      padding: 20px;
+    }
+
+    .content-heading {
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    /* Subscription Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .modal-content {
+      background-color: #fefefe;
+      margin: 10% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 400px;
+      border-radius: 5px;
+      text-align: center;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    /* Image grid container */
+    .image-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* Image container style */
+    .image-container {
+      position: relative;
+      flex: 0 0 calc(33.33% - 20px);
+      /* Adjust width and margin as needed for the desired layout */
+    }
+
+    /* Image style */
+    .image-container img {
+      width: 100%;
+      height: auto;
+      cursor: pointer;
+    }
+
+    /* Pop-up box style */
+    .popup-box {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Popup content style */
+    .popup-content {
+      color: white;
+      text-align: center;
+      z-index: 2;
+    }
+
+    /* Details popup style */
+    .details-popup {
+      background-color: whitesmoke;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 1px 1px 1px blue;
+      width: 100%;
+    }
+
+    /* Close link style */
+    .details-popup a {
+      color: whitesmoke;
+      text-decoration: none;
+      font-weight: bold;
+      display: block;
+      margin-top: 10px;
+    }
+
+    /* Hover effect to show popup on image hover */
+    .image-container:hover .popup-box {
+      opacity: 1;
+    }
+
+
+    /* Pop-up content style */
+    .popup-content {
+      text-align: center;
+      color: rgb(72, 112, 145);
+    }
+
+    /* Add a link style for more details */
+    .popup-content a {
+      color: teal;
+      text-decoration: none;
+    }
+
+    /* Hover effect for the image container */
+    .image-container:hover .popup-box {
+      opacity: 1;
+      /* Show the pop-up on hover */
+    }
+  </style>
+
+  <script>
+    function new_win() {
+      window.open("inst.html", "mywin", "width=500,height=500,screenX=50,left=50,screenY=50,top=50,status=yes,menubar=yes");
+    }
+
+    function win() {
+      var course = document.getElementById("drop").value;
+      var courseDetails = {};
+
+      if (course === "mean") {
+        courseDetails = {
+          title: "MEAN Stack",
+          duration: "30 Days",
+          fees: "$200"
+        };
+      } else if (course === "mern") {
+        courseDetails = {
+          title: "MERN Stack",
+          duration: "2 weeks",
+          fees: "$250"
+        };
+      } else if (course === "mevn") {
+        courseDetails = {
+          title: "MEVN Stack",
+          duration: "28 Days",
+          fees: "$300"
+        };
+      }
+
+      var myWindow = window.open("", course, "width=500,height=500,left=350,top=100");
+      myWindow.document.write(
+        "<h2>" + courseDetails.title + "</h2>" +
+        "<table>" +
+        "<tr>" +
+        "<td>Duration:</td>" +
+        "<td>" + courseDetails.duration + "</td>" +
+        "</tr>" +
+        "<tr>" +
+        "<td>Fees:</td>" +
+        "<td>" + courseDetails.fees + "</td>" +
+        "</tr>" +
+        "</table>"
+      );
+    }
+  </script>
+
+</head>
+
+<body>
+  <div class="carousel-container">
+    <div class="carousel-slides">
+      <img class="carousel-slide" src="./images/3.jpg" alt="Slide 1">
+      <img class="carousel-slide" src="./images/2.jpg" alt="Slide 2">
+      <img class="carousel-slide" src="./images/4.jpg" alt="Slide 3">
+    </div>
+    <div class="header-canvas">
+      <canvas id="canvas"></canvas>
+    </div>
+  </div>
+
+  <div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="course.html">All Courses</a>
+    <a href="register.html">Registration</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="result.html">Result</a>
+    <a href="test.html">LVC Test</a>
+    <a href="subscribe.html" id="subscriptionButton">Subscribe</a>
+    <div class="dropdown">
+      <select id="drop" onchange="win()">
+        <option value="">Select Course</option>
+        <option value="mean">MEAN Stack</option>
+        <option value="mern">MERN Stack</option>
+        <option value="mevn">MEVN Stack</option>
+      </select>
+    </div>
+    <a href="contact.html">Contact Us</a>
+  </div>
+
+  <div class="content">
+    <h2 class="content-heading">Our Sponsered Products</h2>
+  </div>
+
+  <div class="image-grid" style="border: 1px solid black; border-radius: 10px;">
+    <div class="image-container">
+      <img src="./images/mean.png" alt="Image">
+      <div class="popup-box">
+        <div class="popup-content">
+          <div class="details-popup">
+            <p>
+            <h3>What is the MEAN stack?</h3><br />
+            MEAN stack is a JavaScript-based framework for developing web applications. <br />
+            MEAN is named after MongoDB, Express, Angular, and Node, the four key technologies that make up the layers
+            of the stack.</p>
+            <ol>
+              <li>MongoDB — document database</li>
+              <li>Express(.js) — Node.js web framework</li>
+              <li>Angular(.js) — a client-side JavaScript framework</li>
+              <li>Node(.js) — the premier JavaScript web server</li>
+              <a href="#">Close</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="image-container">
+      <img src="./images/mern.jpg" alt="Image">
+      <div class="popup-box">
+        <div class="popup-content">
+          <div class="details-popup">
+            <p>
+            <h3>What is the MERN stack?</h3><br />
+            MERN stands for MongoDB, Express, React, Node, after the four key technologies that make up the stack.</p>
+            <ol>
+              <li>MongoDB — document database</li>
+              <li>Express(.js) — Node.js web framework</li>
+              <li>React(.js) — a client-side JavaScript framework</li>
+              <li>Node(.js) — the premier JavaScript web server</li>
+            </ol>
+            <a href="#">Close</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="image-container">
+      <img src="./images/mevn.jpg" alt="Image">
+      <div class="popup-box">
+        <div class="popup-content">
+          <div class="details-popup">
+            <p>
+            <h3>What is MEVN?</h3>
+            <p>MEVN is again a web stack just like MERN and MEAN though it is relatively new as the front-end technology
+              used in it which is Vue.JS.</p>
+            <ol> Advantages of VueJS:
+              <li>It is platform-independent.</li>
+              <li>Vue.JS is faster and easy to learn.</li>
+            </ol>
+            <ol> Disadvantages of VueJS:
+              <li>Vue.JS is a new framework hence it doesn't have the support of a large community.</li>
+              <li>Lack of plugins as Vue is still not as big as Angular or React.</li>
+            </ol>
+            </p>
+            <a href="#">Close</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <p></p>
+    </div>
+  </div>
+
+  <br /><br /><br /><br />
+
+  <div class="footer">
+    Designed & Developed By: Shama Firdouse
+  </div>
+
+  <div class="modal" id="subscriptionModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeSubscriptionModal()">&times;</span>
+      <h2>Subscribe to our Newsletter</h2>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name">
+      <label for="country">Country:</label>
+      <input type="text" id="country" name="country">
+      <button onclick="subscribe()">Subscribe</button>
+    </div>
+  </div>
+
+  <script src="./js/index.js"></script>
+
+</body>
+
+</html>

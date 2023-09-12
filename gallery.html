@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Contact Us</title>
+
+    <style>
+        /* Content Section */
+        .content {
+            padding: 20px;
+        }
+
+        img.transparent {
+            filter: opacity(80%);
+        }
+
+        img.highly-transparent {
+            filter: opacity(20%);
+        }
+
+        img.shadow {
+            filter: drop-shadow(4px 4px 4px red);
+        }
+
+        img.shadow-large {
+            filter: drop-shadow(4px 4px 10px orange);
+        }
+
+        img.complete-sepia {
+            filter: sepia(100%);
+        }
+
+        img.partial-sepia {
+            filter: sepia(30%);
+        }
+
+        img {
+            width: 100%;
+
+        }
+    </style>
+    
+    <script>
+        function new_win() {
+            window.open("inst.html", "mywin", "width=500,height=500,screenX=50,left=50,screenY=50,top=50,status=yes,menubar=yes");
+        }
+
+        function win() {
+            var course = document.getElementById("drop").value;
+            var courseDetails = {};
+
+            if (course === "mean") {
+                courseDetails = {
+                    title: "MEAN Stack",
+                    duration: "30 Days",
+                    fees: "$200"
+                };
+            } else if (course === "mern") {
+                courseDetails = {
+                    title: "MERN Stack",
+                    duration: "2 weeks",
+                    fees: "$250"
+                };
+            } else if (course === "mevn") {
+                courseDetails = {
+                    title: "MEVN Stack",
+                    duration: "28 Days",
+                    fees: "$300"
+                };
+            }
+
+            var myWindow = window.open("", course, "width=500,height=500,left=350,top=100");
+            myWindow.document.write(
+                "<h2>" + courseDetails.title + "</h2>" +
+                "<table>" +
+                "<tr>" +
+                "<td>Duration:</td>" +
+                "<td>" + courseDetails.duration + "</td>" +
+                "</tr>" +
+                "<tr>" +
+                "<td>Fees:</td>" +
+                "<td>" + courseDetails.fees + "</td>" +
+                "</tr>" +
+                "</table>"
+            );
+        }
+    </script>
+</head>
+
+<body>
+    <div class="carousel-container">
+        <div class="carousel-slides">
+            <img class="carousel-slide" src="./images/3.jpg" alt="Slide 1">
+            <img class="carousel-slide" src="./images/2.jpg" alt="Slide 2">
+            <img class="carousel-slide" src="./images/4.jpg" alt="Slide 3">
+        </div>
+        <div class="header-canvas">
+            <canvas id="canvas"></canvas>
+        </div>
+    </div>
+
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="course.html">All Courses</a>
+        <a href="register.html">Registration</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="result.html">Result</a>
+        <a href="test.html">LVC Test</a>
+        <a href="subscribe.html" id="subscriptionButton">Subscribe</a>
+        <div class="dropdown">
+            <select id="drop" onchange="win()">
+                <option value="">Select Course</option>
+                <option value="mean">MEAN Stack</option>
+                <option value="mern">MERN Stack</option>
+                <option value="mevn">MEVN Stack</option>
+            </select>
+        </div>
+        <a href="contact.html">Contact Us</a>
+    </div>
+
+    <br />
+
+    <h2 style="text-align: center;"> My Image Gallery</h2>
+
+    <div class="clearfix">
+        <section>
+            <table>
+                <tr>
+                    <td>
+                        <img src="./images/5.jpg" alt="Original">
+                    </td>
+                    <td>
+                        <img class="transparent" src="./images/5.jpg" alt="transparent">
+                    </td>
+                    <td>
+                        <img class="highly-transparent" src="./images/5.jpg" alt="highly-transparent">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p style="text-align: center; background-color: black; color:white; padding: 7px;">Original
+                            Image</p>
+                    </td>
+                    <td>
+                        <p style="text-align: center; background-color: black; color:white; padding: 7px;">Transparent
+                            Image</p>
+                    </td>
+                    <td>
+                        <p style="text-align: center; background-color: black; color:white; padding: 7px;">
+                            Highly-Transparent</p>
+                    </td>
+                </tr>
+                <br />
+                <tr>
+                    <td>
+                        <img src="./images/6.jpg" alt="original">
+                    </td>
+                    <td>
+                        <img class="shadow" src="./images/6.jpg" alt="shadow">
+                    </td>
+                    <td>
+                        <img class="shadow-large" src="./images/6.jpg" alt="shadow-large">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p style="text-align: center; background-color: black; color:white; padding: 7px;">Original
+                            Image</p>
+                    </td>
+                    <td>
+                        <p style="text-align: center; background-color: black; color:white; padding: 7px;">Shadow Image
+                            1</p>
+                    </td>
+                    <td>
+                        <p style="text-align: center; background-color: black; color:white; padding: 7px;">Shadow Image
+                            2</p>
+                    </td>
+                </tr>
+                <br>
+                <tr>
+                    <td>
+                        <img src="./images/7.jpg" alt="original">
+                    </td>
+                    <td>
+                        <img class="complete-sepia" src="./images/7.jpg" alt="complete-sepia">
+                    </td>
+                    <td>
+                        <img class="partial-sepia" src="./images/7.jpg" alt="partial-sepia">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p style="text-align: center; background-color: black; color:white; padding: 7px;">Original
+                            Image</p>
+                    </td>
+                    <td>
+                        <p style="text-align: center; background-color: black; color:white; padding: 7px;">Complete
+                            Sepia</p>
+                    </td>
+                    <td>
+                        <p style="text-align: center; background-color: black; color:white; padding: 7px;">Partial Sepia
+                        </p>
+                    </td>
+                </tr>
+            </table>
+        </section>
+    </div>
+
+    <div class="footer">
+        Designed & Developed By: Shama Firdouse
+    </div>
+
+    <script src="./js/index.js"></script>
+
+</body>
+
+</html>
